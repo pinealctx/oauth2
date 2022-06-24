@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"net/http"
 	"strings"
 	"sync"
 	"time"
@@ -29,6 +30,7 @@ type Client struct {
 	issuers   []string
 
 	maxExpiry time.Duration
+	cli       *http.Client
 }
 
 func New(c *Config) *Client {
@@ -37,6 +39,10 @@ func New(c *Config) *Client {
 		audiences: c.Audiences,
 		issuers:   c.Issuers,
 		maxExpiry: c.MaxExpiry,
+		cli: &http.Client{
+			Timeout:   10 * time.Second,
+			Transport: &http.Transport{Proxy: http.ProxyFromEnvironment},
+		},
 	}
 }
 

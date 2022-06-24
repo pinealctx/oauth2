@@ -5,7 +5,6 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"math/big"
-	"net/http"
 	"regexp"
 	"strconv"
 	"time"
@@ -37,7 +36,7 @@ func (c *Client) GetFederatedSignOnCerts() (*Certs, error) {
 			return c.certs, nil
 		}
 	}
-	resp, err := http.Get(c.certURL)
+	resp, err := c.cli.Get(c.certURL)
 	if err != nil {
 		return nil, err
 	}
