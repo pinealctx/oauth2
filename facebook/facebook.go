@@ -42,15 +42,16 @@ func (c *Client) VerifyToken(ctx context.Context, token string) (*DebugTokenResp
 }
 
 type DebugTokenResponseData struct {
-	AppID       int64                  `json:"app_id"`
-	Type        string                 `json:"type"`
-	Application string                 `json:"application"`
-	ExpiresAt   int64                  `json:"expires_at"`
-	IsValid     bool                   `json:"is_valid"`
-	IssuedAt    int64                  `json:"issued_at"`
-	Metadata    map[string]interface{} `json:"metadata"`
-	Scopes      []string               `json:"scopes"`
-	UserID      string                 `json:"user_id"`
+	AppID               string                 `json:"app_id"`
+	Type                string                 `json:"type"`
+	Application         string                 `json:"application"`
+	DataAccessExpiresAt int64                  `json:"data_access_expires_at"`
+	ExpiresAt           int64                  `json:"expires_at"`
+	IsValid             bool                   `json:"is_valid"`
+	IssuedAt            int64                  `json:"issued_at"`
+	Metadata            map[string]interface{} `json:"metadata"`
+	Scopes              []string               `json:"scopes"`
+	UserID              string                 `json:"user_id"`
 }
 
 type DebugTokenResponse struct {

@@ -8,20 +8,23 @@ import (
 func Test_Unmarshal(t *testing.T) {
 	var j = `{
     "data": {
-        "app_id": 138483919580948, 
+        "app_id": "",
         "type": "USER",
-        "application": "Social Cafe", 
-        "expires_at": 1352419328, 
-        "is_valid": true, 
-        "issued_at": 1347235328, 
+        "application": "",
+        "data_access_expires_at": 1666006375,
+        "expires_at": 1663414350,
+        "is_valid": true,
+        "issued_at": 1658230350,
         "metadata": {
-            "sso": "iphone-safari"
-        }, 
+            "auth_type": "rerequest",
+            "sso": "android"
+        },
         "scopes": [
-            "email", 
-            "publish_actions"
-        ], 
-        "user_id": "1207059"
+            "email",
+            "openid",
+            "public_profile"
+        ],
+        "user_id": ""
     }
 }`
 	var r DebugTokenResponse
